@@ -1,36 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth} from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { getAuthToken, request } from '../helpers/axios_helper';
 import { Button } from '@mui/material';
-import AddEvent from './AddEvent';
-import { getEvents } from '../helpers/api_communicator';
-import NavigationLink from './shared/NavigationLink';
+import { getAllEvents } from '../helpers/api_communicator';
 import { Link, useParams } from "react-router-dom";
 import { format } from "date-fns";
+import NavigationLink from './shared/NavigationLink';
 
 
-const Dashboard = () => {
-  const [addButtonPopup, setAddButtonPopup] = useState(false);
+const CommonEvents= () => {
   const [events, setEvents] = useState([]);
 
   const navigate = useNavigate();
-  const auth = useAuth();
-
-  console.log(getAuthToken());
 
   useEffect(() => {
-    if (!auth?.user) {
-      return navigate("*");
-    }
-    else{
       loadEvents();
-    }
-  }, [auth, navigate]);
+  }, [navigate]);
 
   const loadEvents = async () =>{
     try {
-      const response = await getEvents();
+      const response = await getAllEvents();
       const events = response.map(event => ({
         ...event,
         date: new Date(event.date) // Assuming eventDate is the field with the timestamp
@@ -42,21 +31,10 @@ const Dashboard = () => {
     }
   }
 
-  const onDelete = async (id) =>{
-    await request("DELETE", `/delete/${id}`, {})
-    loadEvents();
-  }
-
 
   return (
     <div>
-      <h1 style={{color: 'black'}}>Dashboard </h1>
-      <NavigationLink
-                bg="#AE9D99"
-                to="/addEvent"
-                text="Add Event"
-                textColor="black"
-              />
+      <h1 style={{color: 'black'}}>All events </h1>
         <div className="container">
       <div className="py-4">
         <table className="table border shadow">
@@ -84,7 +62,7 @@ const Dashboard = () => {
                   <Link
                     className="btn btn-primary mx-2"
                     to={{
-                      pathname: "/viewEvent",
+                      pathname: "/viewCommonEvent",
                     }}
                     state={{Event: event}}
                   >
@@ -93,18 +71,12 @@ const Dashboard = () => {
                   <Link
                     className="btn btn-outline-primary mx-2"
                     to={{
-                        pathname: "/editEvent",
+                        pathname: "/registerAttendee",
                     }}
                     state={{Event: event}}
                   >
-                    Edit
+                    Register
                   </Link>
-                  <button
-                    className="btn btn-danger mx-2"
-                    onClick={ ()=> onDelete(event.id)}
-                  >
-                    Delete
-                  </button>
                 </td>
               </tr>
             ))}
@@ -113,12 +85,18 @@ const Dashboard = () => {
         </table>
       </div>
     </div>
+    <NavigationLink
+                bg="#6D5147"
+                to="/"
+                text="Back"
+                textColor="black"
+              />
 
     </div>
   )
 }
 
-export default Dashboard
+export default CommonEvents
 
 //onClick={()=> setAddButtonPopup(true)}  
 //<AddEvent trigger={addButtonPopup} setTrigger={setAddButtonPopup}></AddEvent>

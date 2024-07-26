@@ -11,7 +11,10 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Header from './components/Header'
 import AddEvent from './components/AddEvent'
 import EditEvent from './components/EditEvent'
-
+import ViewEvent from './components/ViewEvent'
+import CommonEvents from './components/CommonEvents'
+import CommonViewEvent from './components/CommonView'
+import AttendeeRegister from './components/RegisterUser'
 
 
 function App() {
@@ -25,10 +28,17 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="/allEvents" element={<CommonEvents/>} />
+        <Route path="/viewCommonEvent" element={<CommonViewEvent/>} />
+        <Route path="/registerAttendee" element={<AttendeeRegister/>} />
+
         <Route path="*" element={<NotFound/>}/>
-        <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/dashboard/" element={<Dashboard/>} />
         <Route path="/addEvent" element={<AddEvent/>} />
         <Route path="/editEvent" element={<EditEvent/>} />
+        <Route path="/viewEvent" element={<ViewEvent/>} />
+
+        
       </Routes>
     </main>
   )

@@ -2,46 +2,46 @@ import React, { useEffect } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 import CustomizedInput from './shared/CustomizedInput'
 import {toast } from 'react-hot-toast';
-import {useAuth} from '../context/AuthContext';
-import { useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
+import { addAttendee } from '../helpers/api_communicator';
 
 
-const Login = () => {
+const AttendeeRegister = () => {
+
+  const location = useLocation();
   const navigate = useNavigate();
-  const auth = useAuth();
+
+  const prevEvent = location?.state.Event;
 
   const handleSubmit = async (e)=>{
     e.preventDefault();
     const data = new FormData(e.currentTarget)
-    const username = data.get("username"); //we get by name
-    const password = data.get("password");
+    const name = data.get("name"); //we get by name
+    const email = data.get("email");
 
     try {
-      toast.loading("Signing In", {id:"login"});
-      await auth?.login(username, password);
-      toast.loading("Signed In Successfuly", {id:"login"});
+      toast.loading("Registering");
+      
+      const response = await addAttendee(prevEvent.id ,name, email);
+      console.log(response)
+
+      toast.loading("Registered Successfuly");
       setTimeout(() => {
         toast.dismiss();
       }, 3000);
 
     } catch (error) {
       console.log(error);
-      toast.loading("Signing In Failed", {id:"login"});
+      toast.loading("Failed to register");
       setTimeout(() => {
         toast.dismiss();
       }, 3000);
     }
 
-    console.log(username + " and " + password);
+    console.log(name + " and " + email);
+
+    navigate("/allEvents");
   }
-    useEffect(()=>{
-      if(auth?.user)
-        {
-          return navigate("/dashboard/");
-        }
-
-    },[auth]);
-
 
   return (
       <Box
@@ -68,10 +68,10 @@ const Login = () => {
               fontWeight={600}
               color={'black'}
             >
-            Login
+            Register
             </Typography>
-            <CustomizedInput type="username" name="username" label="Username" />
-            <CustomizedInput type="password" name="password" label="Password" />
+            <CustomizedInput type="name" name="name" label="Name" />
+            <CustomizedInput type="email" name="email" label="Email" />
             <Button
               type="submit"
               sx={{
@@ -86,10 +86,9 @@ const Login = () => {
                   bgcolor: "white",
                   color: "black",
                 },
-              }}
-              
+              }} 
             >
-              Login
+              Register For Event
             </Button>
           </Box>
         </form>
@@ -97,4 +96,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default AttendeeRegister

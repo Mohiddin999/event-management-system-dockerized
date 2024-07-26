@@ -1,6 +1,30 @@
 import axios from "axios";
 import { request, setAuthHeader } from "./axios_helper";
 
+export const addAttendee = async (eventid, name, email) => {
+  console.log("reached api "+ name + " eventid: "+ eventid)
+  const res = await request("POST","/addattendee", {eventid, name, email});
+  if(res.status != 200)
+  {
+      throw new Error("Unable to register for event");
+  }
+
+  const data = await res.data;
+  return data;
+};
+
+export const getAttendees = async (route) => {
+  console.log("reached getattendees ")
+  const res = await request("GET",route, {});
+  if(res.status != 200)
+  {
+      throw new Error("Unable to get attendees");
+  }
+
+  const data = await res.data;
+  return data;
+};
+
 export const addEvent = async (name, username, description, place, city, country, date) => {
   console.log("reached api "+ username + " date: "+ date)
   const res = await request("POST","/addevent", {name, username, description, place, city, country, date});
@@ -29,6 +53,18 @@ export const updateEvent = async (route, name, username, description, place, cit
 export const getEvents = async () => {
   console.log("reached getevents ")
   const res = await request("GET","/getevent", {});
+  if(res.status != 200)
+  {
+      throw new Error("Unable to get events");
+  }
+
+  const data = await res.data;
+  return data;
+};
+
+export const getAllEvents = async () => {
+  console.log("reached getevents ")
+  const res = await request("GET","/getallevents", {});
   if(res.status != 200)
   {
       throw new Error("Unable to get events");

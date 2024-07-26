@@ -1,12 +1,12 @@
 package com.event_management.event_management_system_backend.controller;
 
-import com.event_management.event_management_system_backend.Dto.AdminDto;
-import com.event_management.event_management_system_backend.Dto.CredentialsDto;
-import com.event_management.event_management_system_backend.Dto.EventDto;
-import com.event_management.event_management_system_backend.Dto.SignUpDto;
+import com.event_management.event_management_system_backend.Dto.*;
 import com.event_management.event_management_system_backend.config.UserAuthenticationProvider;
+import com.event_management.event_management_system_backend.mapper.AttendeeMapper;
 import com.event_management.event_management_system_backend.mapper.EventMapper;
+import com.event_management.event_management_system_backend.model.Attendee;
 import com.event_management.event_management_system_backend.model.Event;
+import com.event_management.event_management_system_backend.repositories.AttendeeRepository;
 import com.event_management.event_management_system_backend.repositories.EventRepository;
 import com.event_management.event_management_system_backend.services.AdminService;
 import jakarta.validation.Valid;
@@ -27,6 +27,8 @@ public class AuthController {
     private final UserAuthenticationProvider userAuthenticationProvider;
     private final EventRepository eventRepository;
     private final EventMapper eventMapper;
+    private final AttendeeMapper attendeeMapper;
+    private final AttendeeRepository attendeeRepository;
 
     @PostMapping("/login")
     public ResponseEntity<AdminDto> login(@RequestBody @Valid CredentialsDto credentialsDto){
@@ -104,6 +106,40 @@ public class AuthController {
                         }
                 )
                 .orElseGet(()-> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/getallevents")
+    public ResponseEntity<List<EventDto>> getAllEvents(){
+
+        List<Event> events = eventRepository.findAll();
+        if(!events.isEmpty()) {
+            System.out.println(events.get(0).getDate());
+        }
+        List<EventDto> eventDtoList = eventMapper.listEventToDto(events);
+        if(!events.isEmpty()) {
+            System.out.println(eventDtoList.get(0).getDate());
+        }
+        return ResponseEntity.ok(eventDtoList);
+    }
+
+    @PostMapping("/addattendee")
+    public ResponseEntity<Attendee> addAttendee(@RequestBody @Valid Attendee attendee){
+        System.out.println(attendee.getEventid());
+
+
+        Attendee savedAttendee = attendeeRepository.save(attendee);
+        System.out.println("saved attendee: " + savedAttendee.getEventid());
+        return ResponseEntity.ok(savedAttendee);
+    }
+
+    @GetMapping("/attendees/{id}")
+    public ResponseEntity<List<Attendee>> getAllAttendees(@PathVariable Long id){
+
+        List<Attendee> attendees = attendeeRepository.findByEventid(id);
+        if(!attendees.isEmpty()) {
+            System.out.println(attendees.get(0).getEventid());
+        }
+        return ResponseEntity.ok(attendees);
     }
 
 }

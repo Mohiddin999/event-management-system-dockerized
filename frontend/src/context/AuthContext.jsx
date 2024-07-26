@@ -40,7 +40,7 @@ export const AuthProvider = ({children}) =>{
         setAuthHeader(null)
         const data = await loginUser(username, password);
         if(data){
-            setUser({username: data.username, name : data.name});
+            setUser({ id:data.id, username: data.username, name : data.name});
             setIsLoggedIn(true);
             //window.location.reload();
         }
@@ -50,7 +50,7 @@ export const AuthProvider = ({children}) =>{
         setAuthHeader(null)
         const data = await signupUser(name,username, email, password);
         if (data) {
-          setUser({ username: data.username, name: data.name });
+          setUser({id:data.id, username: data.username, name: data.name });
           setIsLoggedIn(true);
         }
       };
