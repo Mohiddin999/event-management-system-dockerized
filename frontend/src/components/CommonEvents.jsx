@@ -60,7 +60,7 @@ const CommonEvents= () => {
                 <td>{format(event.date, "MMMM do, yyyy")}</td>
                 <td>
                   <Link
-                    className="btn btn-primary mx-2"
+                    className="btn mx-2 btn-secondary btn-outline-light"
                     to={{
                       pathname: "/viewCommonEvent",
                     }}
@@ -69,7 +69,7 @@ const CommonEvents= () => {
                     View
                   </Link>
                   <Link
-                    className="btn btn-outline-primary mx-2"
+                    className="btn btn-outline-primary mx-2 btn-outline-dark"
                     to={{
                         pathname: "/registerAttendee",
                     }}
@@ -88,7 +88,7 @@ const CommonEvents= () => {
     <NavigationLink
                 bg="#6D5147"
                 to="/"
-                text="Back"
+                text="Back To Home"
                 textColor="black"
               />
 

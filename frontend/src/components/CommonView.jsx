@@ -26,7 +26,8 @@ const CommonViewEvent = () => {
         alignItems={"center"}
         padding={2}
         ml={"auto"}
-        mt={16}
+        mt={4}
+        marginBottom={2}
       >
         <form >
           <Box
@@ -43,7 +44,7 @@ const CommonViewEvent = () => {
               fontWeight={600}
               color={'black'}
             >
-            Event
+            Event Details
             </Typography>
             <CustomizedInput type="name" name="name" label="Name" value={prevEvent.name}/>
             <CustomizedInput type="description" name="description" label="Description" value={prevEvent.description}/>

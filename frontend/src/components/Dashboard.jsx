@@ -50,7 +50,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1 style={{color: 'black'}}>Dashboard </h1>
+      <h1 style={{color: 'black', marginBottom:'24px'}}>Dashboard </h1>
       <NavigationLink
                 bg="#AE9D99"
                 to="/addEvent"
@@ -82,7 +82,7 @@ const Dashboard = () => {
                 <td>{format(event.date, "MMMM do, yyyy")}</td>
                 <td>
                   <Link
-                    className="btn btn-primary mx-2"
+                    className="btn mx-2 btn-secondary btn-outline-light"
                     to={{
                       pathname: "/viewEvent",
                     }}
@@ -91,7 +91,7 @@ const Dashboard = () => {
                     View
                   </Link>
                   <Link
-                    className="btn btn-outline-primary mx-2"
+                    className="btn btn-outline-primary mx-2 btn-outline-dark"
                     to={{
                         pathname: "/editEvent",
                     }}

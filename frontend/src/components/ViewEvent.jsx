@@ -51,7 +51,7 @@ const ViewEvent = () => {
         alignItems={"center"}
         padding={2}
         ml={"auto"}
-        mt={16}
+        mt={4}
       >
         <form >
           <Box
@@ -68,7 +68,7 @@ const ViewEvent = () => {
               fontWeight={600}
               color={'black'}
             >
-            Event
+            Event Details
             </Typography>
             <CustomizedInput type="name" name="name" label="Name" value={prevEvent.name}/>
             <CustomizedInput type="description" name="description" label="Description" value={prevEvent.description}/>
@@ -77,15 +77,25 @@ const ViewEvent = () => {
             <CustomizedInput type="country" name="country" label="Country" value={prevEvent.country}/>
             <CustomizedInput type="date" name="date" label="Date" value={format(prevEvent.date, "yyyy-MM-dd")}/>
 
+            <Typography
+              variant="h5"
+              textAlign="center"
+              padding={2}
+              fontWeight={600}
+              color={'black'}
+            >
+            Attendee List 
+            </Typography>
             <Box sx={{
-              height: '500px', 
+              height: '400px', 
               overflowY: 'scroll',
               justifyContent: "center",
+              marginBottom: ' 24px'
             }}>
                 <div className='container'>
                     {
                         attendees.map((attendee, index)=>(
-                            <div key={index+1}>
+                            <div key={index+1} className='listel' style={{marginTop: '24px'}}>
                                 <h4> {attendee.name}</h4>
                                 {attendee.email}
                             </div>

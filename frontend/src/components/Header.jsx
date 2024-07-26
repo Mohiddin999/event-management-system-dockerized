@@ -12,12 +12,11 @@ const Header = () => {
   return (
     <AppBar
       sx={{ bgcolor: "transparent", position: "static", boxShadow: "none" }}>
-      <Toolbar sx={{ display: "flex" }}>
+      <Toolbar sx={{ display: "flex", flexDirection:"row" }}>
         <div>
         { auth?.isLoggedIn ? 
           (
             <>
-
             <NavigationLink bg="#6D5147"
             textColor="white"
             to="/"
@@ -28,6 +27,7 @@ const Header = () => {
           : 
           (
             <>
+            <div style={{display:'inline-flex'}}>
             <NavigationLink
                 bg="#AE9D99"
                 to="/login"
@@ -40,6 +40,7 @@ const Header = () => {
                 to="/signup"
                 text="Signup"
               />
+              </div>
             </>) 
         }
         </div>

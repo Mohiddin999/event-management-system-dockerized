@@ -4,6 +4,7 @@ import CustomizedInput from './shared/CustomizedInput'
 import {toast } from 'react-hot-toast';
 import { useLocation, useNavigate} from 'react-router-dom';
 import { addAttendee } from '../helpers/api_communicator';
+import NavigationLink from './shared/NavigationLink';
 
 
 const AttendeeRegister = () => {
@@ -85,11 +86,19 @@ const AttendeeRegister = () => {
                 ":hover": {
                   bgcolor: "white",
                   color: "black",
+                  
                 },
+                marginBottom:"24px"
               }} 
             >
               Register For Event
             </Button>
+            <NavigationLink
+                bg="#6D5147"
+                to="/"
+                text="Back To Home"
+                textColor="black"
+              />
           </Box>
         </form>
       </Box>

@@ -4,6 +4,7 @@ import CustomizedInput from './shared/CustomizedInput'
 import {toast } from 'react-hot-toast';
 import {useAuth} from '../context/AuthContext';
 import { useNavigate} from 'react-router-dom';
+import NavigationLink from './shared/NavigationLink';
 
 
 const Signup = () => {
@@ -58,7 +59,7 @@ const Signup = () => {
         alignItems={"center"}
         padding={2}
         ml={"auto"}
-        mt={16}
+        mt={6}
       >
         <form onSubmit={handleSubmit} >
           <Box
@@ -95,10 +96,17 @@ const Signup = () => {
                   bgcolor: "white",
                   color: "black",
                 },
+                marginBottom:"24px"
               }}
             >
               Signup
             </Button>
+            <NavigationLink
+                bg="#6D5147"
+                to="/"
+                text="Back To Home"
+                textColor="black"
+              />
           </Box>
         </form>
       </Box>

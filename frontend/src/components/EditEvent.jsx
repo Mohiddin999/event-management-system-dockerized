@@ -76,7 +76,7 @@ const EditEvent = () => {
         alignItems={"center"}
         padding={2}
         ml={"auto"}
-        mt={16}
+        mt={4}
       >
         <form onSubmit={handleSubmit} >
           <Box
@@ -93,7 +93,7 @@ const EditEvent = () => {
               fontWeight={600}
               color={'black'}
             >
-            New Event
+            Edit Event
             </Typography>
             <CustomizedInput type="name" name="name" label="Name" value={prevEvent.name} onChange={(e) => onInputChange(e)}/>
             <CustomizedInput type="description" name="description" label="Description" value={prevEvent.description} onChange={(e) => onInputChange(e)}/>
@@ -116,11 +116,13 @@ const EditEvent = () => {
                   bgcolor: "white",
                   color: "black",
                 },
+                marginBottom:'24px'
               }}
               
             >
-              Add
+              Update
             </Button>
+
             <NavigationLink
                 bg="#6D5147"
                 to="/dashboard"
