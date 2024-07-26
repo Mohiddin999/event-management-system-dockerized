@@ -77,4 +77,4 @@ The Event Management System is a web application designed to facilitate the crea
 
 ## What I Learned ##
 
-This was my first time building a cross language application, so it was simultaneously challegning and rewarding. I also worked with Spring Security this time, and initially faced some difficulties, but was able to overcome them eventually. Overall this was a very enjoyable web app to make.
+This was my first time building a cross language application, so it was simultaneously challenging and rewarding. I also worked with Spring Security this time, and initially faced some difficulties, but was able to overcome them eventually. Overall this was a very enjoyable web app to make.
