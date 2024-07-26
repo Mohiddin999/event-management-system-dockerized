@@ -13,6 +13,7 @@ The Event Management System is a web application designed to facilitate the crea
 - ### Responsive Design: User-friendly interface that works on both desktop and mobile devices.
 
 <br>
+
 ## Technologies Used ##
 
 - ### Backend: ###
