@@ -66,7 +66,7 @@ const AddEvent = () => {
         alignItems={"center"}
         padding={2}
         ml={"auto"}
-        mt={16}
+        mt={3}
       >
         <form onSubmit={handleSubmit} >
           <Box
@@ -106,6 +106,7 @@ const AddEvent = () => {
                   bgcolor: "white",
                   color: "black",
                 },
+                marginBottom: '24px'
               }}
               
             >

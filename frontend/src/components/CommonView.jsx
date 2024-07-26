@@ -27,7 +27,6 @@ const CommonViewEvent = () => {
         padding={2}
         ml={"auto"}
         mt={4}
-        marginBottom={2}
       >
         <form >
           <Box
