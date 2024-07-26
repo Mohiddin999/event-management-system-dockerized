@@ -7,8 +7,12 @@ import Dashboard from './components/Dashboard'
 import { Home } from './components/Home'
 import { Route, Routes } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
-import { setAuthHeader } from './helpers/axios_helper'
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Header from './components/Header'
+import AddEvent from './components/AddEvent'
+import EditEvent from './components/EditEvent'
+
+
 
 function App() {
 
@@ -23,6 +27,8 @@ function App() {
         <Route path="/signup" element={<Signup/>}/>
         <Route path="*" element={<NotFound/>}/>
         <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/addEvent" element={<AddEvent/>} />
+        <Route path="/editEvent" element={<EditEvent/>} />
       </Routes>
     </main>
   )

@@ -37,6 +37,7 @@ export const AuthProvider = ({children}) =>{
       }, []);*/
 
     const login = async (username, password)=>{
+        setAuthHeader(null)
         const data = await loginUser(username, password);
         if(data){
             setUser({username: data.username, name : data.name});
@@ -46,6 +47,7 @@ export const AuthProvider = ({children}) =>{
     };
 
     const signup = async (name, username, email, password) => {
+        setAuthHeader(null)
         const data = await signupUser(name,username, email, password);
         if (data) {
           setUser({ username: data.username, name: data.name });

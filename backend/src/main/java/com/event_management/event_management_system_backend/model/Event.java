@@ -1,17 +1,17 @@
 package com.event_management.event_management_system_backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
 public class Event {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue()
     private Long id;
+
+    @Column(name = "username", nullable = false)
+    private String username;
     private String name;
     private String city;
     private String country;
@@ -22,7 +22,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(Long id, String name, String city, String country, String place, String description, Date date) {
+    public Event(Long id, String name, String city, String country, String place, String description, Date date, String username) {
         this.id = id;
         this.name = name;
         this.city = city;
@@ -30,6 +30,15 @@ public class Event {
         this.place = place;
         this.description = description;
         this.date = date;
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Long getId() {

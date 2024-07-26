@@ -1,6 +1,43 @@
 import axios from "axios";
 import { request, setAuthHeader } from "./axios_helper";
 
+export const addEvent = async (name, username, description, place, city, country, date) => {
+  console.log("reached api "+ username + " date: "+ date)
+  const res = await request("POST","/addevent", {name, username, description, place, city, country, date});
+  if(res.status != 200)
+  {
+      throw new Error("Unable to add event");
+  }
+
+  const data = await res.data;
+  return data;
+};
+
+export const updateEvent = async (route, name, username, description, place, city, country, date) => {
+  console.log("reached api "+ username + " date: "+ date)
+  const res = await request("PUT",route, {name, username, description, place, city, country, date});
+  if(res.status != 200)
+  {
+      throw new Error("Unable to add event");
+  }
+
+  const data = await res.data;
+  return data;
+};
+
+
+export const getEvents = async () => {
+  console.log("reached getevents ")
+  const res = await request("GET","/getevent", {});
+  if(res.status != 200)
+  {
+      throw new Error("Unable to get events");
+  }
+
+  const data = await res.data;
+  return data;
+};
+
 export const loginUser = async (username, password) => {
     const res = await request("POST","/login", {username, password});
     if(res.status != 200)

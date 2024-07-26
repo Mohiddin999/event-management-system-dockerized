@@ -9,6 +9,8 @@ const CustomizedInput = (props) => {
       name={props.name}
       label={props.label}
       type={props.type}
+      value={props.value}
+      onChange={props.onChange}
       InputProps={{
         style: {
           width: "400px",

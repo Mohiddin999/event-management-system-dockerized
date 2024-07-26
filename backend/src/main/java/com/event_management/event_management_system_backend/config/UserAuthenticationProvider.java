@@ -33,7 +33,7 @@ public class UserAuthenticationProvider {
 
     public String createToken(String username){
         Date now = new Date();
-        Date validity = new Date(now.getTime() + 3600000);
+        Date validity = new Date(now.getTime() + 360000000);
 
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         return JWT.create()
@@ -48,6 +48,10 @@ public class UserAuthenticationProvider {
 
         JWTVerifier verifier = JWT.require(algorithm).build();
         DecodedJWT decodedJWT = verifier.verify(token);
+        if (decodedJWT.getExpiresAt().before(new Date())) {
+            throw new RuntimeException("Token has expired");
+        }
+
         AdminDto admin = adminService.findByUsername(decodedJWT.getSubject());
 
         return new UsernamePasswordAuthenticationToken(admin, null, Collections.emptyList());

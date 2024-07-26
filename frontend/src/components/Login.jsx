@@ -80,7 +80,8 @@ const Login = () => {
                 mt: 2,
                 width: "400px",
                 borderRadius: 2,
-                bgcolor: "#9BCCF4",
+                bgcolor: "#AE9D99",
+                color: "black",
                 ":hover": {
                   bgcolor: "white",
                   color: "black",
