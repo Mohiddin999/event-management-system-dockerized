@@ -135,20 +135,3 @@ This application is fully containerized with Docker. The `docker-compose.yml` fi
 
 ---
 
-# Notes:
-- Make sure to replace `https://github.com/yourusername/eventzen.git` with the correct GitHub URL of your repository.
-- If you have other dependencies or special setup instructions, feel free to add them in the appropriate sections.
-  
-
-### Key Points:
-1. **Headings** are structured using `#` for major sections and `##` for subsections.
-2. **Code blocks** are included using triple backticks (```) to make the commands and code easy to copy and execute.
-3. **Bold text** is used for emphasis on key sections like features and technologies.
-4. **Images**: The ER Diagram section includes a placeholder image link. Replace it with your actual image link.
-
-### How to use:
-1. Copy the content above and paste it into a `README.md` file.
-2. Replace any placeholders, like the repository URL and ER diagram URL, with your actual content.
-3. Push the updated `README.md` file to your GitHub repository.
-
-Once done, anyone visiting your GitHub repository will see this clean and well-structured `README.md` file!
