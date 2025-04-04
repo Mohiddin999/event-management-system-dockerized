@@ -135,10 +135,10 @@ This application is fully containerized with Docker. The `docker-compose.yml` fi
 
 ---
 
-### **Notes:**
+# Notes:
 - Make sure to replace `https://github.com/yourusername/eventzen.git` with the correct GitHub URL of your repository.
 - If you have other dependencies or special setup instructions, feel free to add them in the appropriate sections.
-```
+  
 
 ### Key Points:
 1. **Headings** are structured using `#` for major sections and `##` for subsections.
