@@ -6,7 +6,7 @@ export const Home = () => {
     <div>
     <div className='hero'>
       <div className='content'>
-      <div className='textt' style={{color:'black', marginBottom:'24px'}}>YOUR EVENT MANAGEMENT SOLUTION</div>
+      <div className='textt' style={{color:'black', marginBottom:'34px'}}>THE ULTIMATE EVENT PLATFORM</div>
       </div>
       <Link
 
@@ -29,13 +29,13 @@ export const Home = () => {
 
               to="/allEvents"
             >
-              View All Events
+              See All Events
             </Link>
     </div>
 
     <div>
     <div className='content-box1'>
-    <div style={{ marginTop:'40px', marginBottom:'24px', fontWeight: 600, fontSize:'x-large'}}>Looking for events to attend?</div>
+    <div style={{ marginTop:'40px', marginBottom:'24px', fontWeight: 600, fontSize:'x-large'}}>Want to find events to attend?</div>
     <Link
 
               className="second-button"
@@ -57,11 +57,11 @@ export const Home = () => {
 
               to="/allEvents"
             >
-             All Events
+             Browse All Events
             </Link>
     </div>
     <div className='content-box2'>
-    <div style={{ marginTop:'40px', marginBottom:'24px', fontWeight: 600, fontSize:'x-large'}}>Looking for a platform to create events?</div>
+    <div style={{ marginTop:'40px', marginBottom:'24px', fontWeight: 600, fontSize:'x-large'}}>Want to organize an event?</div>
     <Link
 
               className="second-button"
@@ -83,7 +83,7 @@ export const Home = () => {
 
               to="/signup"
             >
-             Sign Up Now
+             Sign Up Today!
             </Link>
     </div>
     </div>
