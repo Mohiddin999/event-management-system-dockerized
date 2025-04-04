@@ -1,5 +1,3 @@
-Here is your complete `README.md` in proper format:
-
 ```markdown
 # EventZen - Event Management System
 
