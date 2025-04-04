@@ -1,4 +1,4 @@
-```markdown
+
 # EventZen - Event Management System
 
 EventZen is a **full-stack event management system** that enables seamless event scheduling, attendee management, and budget tracking. The platform allows both event organizers and attendees to interact, register, and manage event-related activities efficiently.
